@@ -37,25 +37,9 @@ const downloadUrl =
   "https://pub-7c187bc0b63146cd9ed399c7cd9e6002.r2.dev/files/" +
   encodeURIComponent(fileName);
 
-async function checkExists(url) {
-  try {
-    const res = await fetch(url, { method: "HEAD" });
-    return res.ok;
-  } catch (e) {
-    return false;
-  }
-}
-
-async function init() {
+function init() {
   if (!fileName) {
     button.textContent = "No file specified";
-    button.disabled = true;
-    return;
-  }
-  button.textContent = "Checking file...";
-  const exists = await checkExists(downloadUrl);
-  if (!exists) {
-    button.textContent = "File not found";
     button.disabled = true;
     return;
   }
