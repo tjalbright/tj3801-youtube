@@ -1,0 +1,14 @@
+[
+  {
+    "filename": "things-for-1.0.7z",
+    "displayName": "Things for 1.0",
+    "videoName": "Running Minecraft in MacOS 10.4 in a web browser",
+    "videoReleased": true
+  },
+  {
+    "filename": "another-file.zip",
+    "displayName": "Another File",
+    "videoName": "Upcoming Video",
+    "videoReleased": false
+  }
+]

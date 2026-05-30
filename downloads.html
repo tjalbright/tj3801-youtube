@@ -40,8 +40,32 @@
   <p>this is where you shall find all my files</p>
   <button onclick="location.href='/files/things-for-1.0.7z'" style="background-color: rgb(0, 255, 0);">download my latest project (things for 1.0)</button>
   
+  <table>
+    <thead>
+      <tr>
+        <th>File</th>
+        <th>Video</th>
+        <th>Video Released</th>
+      </tr>
+    </thead>
+    <tbody id="fileList"></tbody>
+  </table>
+
   <script>
-    
+    fetch('/files.json')
+      .then(res => res.json())
+      .then(files => {
+        const tbody = document.getElementById('fileList');
+        files.forEach(file => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td><a href="/files/${file.filename}">${file.displayName}</a></td>
+            <td>${file.videoName}</td>
+            <td>${file.videoReleased ? '✅ Yes' : '❌ Not yet'}</td>
+          `;
+          tbody.appendChild(row);
+        });
+      });
   </script>
 
 </body>
