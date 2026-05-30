@@ -1,74 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TJ3801 Youtube Official</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <title>Downloads</title>
   <style>
     body {
-  background-color: #bde6ff;
-     color: black;
-     font-family: Arial, sans-serif;
-     text-align: center;
-     margin-top: 100px;
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 40px;
     }
-
-    button {
-      padding: 10px 20px;
-      font-size: 18px;
-      border: none;
+    input {
+      width: 100%;
+      max-width: 800px;
+      padding: 10px;
+      margin: 0 auto 20px auto;
+      display: block;
+      background: #222;
+      border: 1px solid #444;
       border-radius: 8px;
-      cursor: pointer;
-    }
-    .hero {
-      background-image: url('background.jpeg');
-      background-attachment: fixed;  /* this is the magic */
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
+      color: white;
+      font-size: 16px;
     }
     table {
-     width: 100%;
-     max-width: 800px;
-     border-collapse: collapse;
-     margin: 0 auto;
+      width: 100%;
+      max-width: 800px;
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #333;
+      text-align: left;
+    }
+    th {
+      background-color: #222;
+    }
+    a {
+      color: #7af;
     }
   </style>
 </head>
-
 <body>
-  <h1>Downloads</h1>
-  <p>this is where you shall find all my files</p>
-  
+  <h1 style="text-align:center;">Downloads</h1>
+  <input type="text" id="search" placeholder="Search files...">
   <table>
     <thead>
       <tr>
         <th>File</th>
         <th>Video</th>
         <th>Video Released</th>
+        <th>Date</th>
       </tr>
     </thead>
     <tbody id="fileList"></tbody>
   </table>
 
   <script>
+    let allFiles = [];
+
     fetch('/files.json')
       .then(res => res.json())
       .then(files => {
-        const tbody = document.getElementById('fileList');
-        files.forEach(file => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
-            <td><a href="/files/${file.filename}">${file.displayName}</a></td>
-            <td>${file.videoName}</td>
-            <td>${file.videoReleased ? '✅ Yes' : '❌ Not yet'}</td>
-          `;
-          tbody.appendChild(row);
-        });
+        allFiles = files;
+        renderTable(files);
       });
-  </script>
 
+    document.getElementById('search').addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      const filtered = allFiles.filter(file =>
+        file.displayName.toLowerCase().includes(query) ||
+        file.videoName.toLowerCase().includes(query) ||
+        file.date.includes(query) ||
+        file.filename.includes(query)
+      );
+      renderTable(filtered);
+    });
+
+    function renderTable(files) {
+      const tbody = document.getElementById('fileList');
+      tbody.innerHTML = '';
+      files.forEach(file => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><a href="/files/${file.filename}">${file.displayName}</a></td>
+          <td>${file.videoName}</td>
+          <td>${file.videoReleased ? '✅ Yes' : '❌ Not yet'}</td>
+          <td>${file.date}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+  </script>
 </body>
 </html>
