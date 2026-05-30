@@ -7,7 +7,7 @@ export async function onRequest(context) {
 const HTML = `<!DOCTYPE html>
 <html>
 <head>
-<title>My Test Site</title>
+<title>Download</title>
 <style>
 body {
   background-color: #bde6ff;
@@ -40,10 +40,12 @@ const downloadUrl =
 function init() {
   if (!fileName) {
     button.textContent = "No file specified";
+    document.title = "No File"
     button.disabled = true;
     return;
   }
   button.textContent = "Download " + fileName;
+  document.title = "Download" + fileName;
   window.goDownload = function () {
     window.location.href = downloadUrl;
   };
