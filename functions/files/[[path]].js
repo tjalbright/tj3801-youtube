@@ -11,7 +11,7 @@ const HTML = `<!DOCTYPE html>
 <style>
 body {
   background-color: #bde6ff;
-  color: white;
+  color: black;
   font-family: Arial, sans-serif;
   text-align: center;
   margin-top: 100px;
