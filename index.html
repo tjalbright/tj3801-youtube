@@ -4,11 +4,7 @@
   <title>My Test Site</title>
   <style>
     body {
-      background-color: #111;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 100px;
+  margin:0
     }
 
     button {
@@ -18,17 +14,26 @@
       border-radius: 8px;
       cursor: pointer;
     }
+    .hero {
+      background-image: url('background.jpeg');
+      background-attachment: fixed;  /* this is the magic */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+    }
   </style>
 </head>
 
 <body>
+  <div class="hero"></div>
+  <div style="background:#111; color:white; padding:100px; height:100vh;">
+    <h1>hello internet</h1>
+    <p>this is my test website</p>
 
-  <h1>hello internet</h1>
-  <p>this is my test website</p>
-
-  <button onclick="doThing()">click me</button>
-  <button onclick="location.href='/files/things-for-1.0.7z'">download my latest project</button>
-
+    <button onclick="doThing()">click me</button>
+    <button onclick="location.href='/files/things-for-1.0.7z'">download my latest project</button>
+  </div>
+  
   <script>
     function doThing() {
       //alert("you clicked the button. nothing happened. impressive.");
