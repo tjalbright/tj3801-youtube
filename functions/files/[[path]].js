@@ -10,7 +10,7 @@ const HTML = `<!DOCTYPE html>
 <title>My Test Site</title>
 <style>
 body {
-  background-color: #111;
+  background-color: #bde6ff;
   color: white;
   font-family: Arial, sans-serif;
   text-align: center;
