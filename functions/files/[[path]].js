@@ -45,7 +45,7 @@ function init() {
     return;
   }
   button.textContent = "Download " + fileName;
-  document.title = "Download" + fileName;
+  document.title = "Download " + fileName;
   window.goDownload = function () {
     window.location.href = downloadUrl;
   };
