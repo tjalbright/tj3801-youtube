@@ -28,6 +28,7 @@ button {
 <body>
 <h1>Download Page</h1>
 <button id="downloadbut" onclick="goDownload()">Download Loading...</button>
+<button onclick="location.href='/'">Go to Home Page</button>
 <script>
 const fileName = decodeURIComponent(
   window.location.pathname.split("/files/")[1] || ""
