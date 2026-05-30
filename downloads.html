@@ -44,6 +44,7 @@
     }
     button {
       background-color: rgb(0, 71, 249);
+      
     }
   </style>
 </head>
@@ -96,7 +97,7 @@
       files.forEach(file => {
         const row = document.createElement('tr');
         row.innerHTML = `
-          <td><button onclick="location.href='/files/${file.filename}'">${file.displayName}</button></td>
+          <button onclick="location.href='/files/${file.filename}'">${file.displayName}</button>
           <td>${file.videoName}</td>
           <td>${file.videoReleased ? '✅ Yes' : '❌ Not yet'}</td>
           <td>${file.date}</td>
