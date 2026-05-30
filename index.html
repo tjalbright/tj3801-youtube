@@ -4,8 +4,15 @@
   <title>My Test Site</title>
   <style>
     body {
-  margin:0
-    }
+  margin: 0;
+  background-image: url('your-image.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
 
     button {
       padding: 10px 20px;
@@ -25,14 +32,11 @@
 </head>
 
 <body>
-  <div class="hero"></div>
-  <div style="background:#111; color:white; padding:100px; height:100vh;">
-    <h1>hello internet</h1>
-    <p>this is my test website</p>
-
-    <button onclick="doThing()">click me</button>
-    <button onclick="location.href='/files/things-for-1.0.7z'">download my latest project</button>
-  </div>
+ <h1>hello internet</h1>
+ <p>this is my test website</p>
+  
+ <button onclick="doThing()">click me</button>
+ <button onclick="location.href='/files/things-for-1.0.7z'">download my latest project</button>
   
   <script>
     function doThing() {
