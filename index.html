@@ -29,13 +29,17 @@
 </head>
 
 <body>
-  <button onclick="location.href='/downloads'" style="background-color: rgb(255, 0, 0);">Downloads</button>
+  <div id="header"></div>
   <h1>TJ3801's Home Page</h1>
   <p>Download all my files with instuctions, and some other random stuff</p>
   <button onclick="location.href='/files/things-for-1.0.7z'" style="background-color: rgb(0, 255, 0);">download my latest project (things for 1.0)</button>
   
   <script>
-    
+      fetch('/header.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('header').innerHTML = html;
+    });
   </script>
 
 </body>
