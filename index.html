@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Test Site</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>hello internet</h1>
+  <p>this is my test website</p>
+
+  <button onclick="doThing()">click me</button>
+  <button onclick="location.href='https://pub-7c187bc0b63146cd9ed399c7cd9e6002.r2.dev/files/things-for-1.0.7z'">download my latest project</button>
+
+  <script>
+    function doThing() {
+      //alert("you clicked the button. nothing happened. impressive.");
+      document.body.style.backgroundColor =
+        "#" + Math.floor(Math.random()*16777215).toString(16);
+    }
+  </script>
+
+</body>
+</html>
