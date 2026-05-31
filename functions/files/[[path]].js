@@ -27,7 +27,7 @@ button {
 </head>
 <body>
 <h1>Download Page</h1>
-<button onclick="history.back()">Go Back</button>
+<button onclick="history.back()" style="background-color: rgb(255, 0, 0);">Go Back</button>
 <button id="downloadbut" onclick="goDownload()" style="background-color: rgb(0, 255, 0);">Download Loading...</button>
 <script>
 const fileName = decodeURIComponent(
