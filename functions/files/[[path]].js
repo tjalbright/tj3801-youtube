@@ -27,8 +27,8 @@ button {
 </head>
 <body>
 <h1>Download Page</h1>
-<button id="downloadbut" onclick="goDownload()">Download Loading...</button>
-<button onclick="location.href='/'">Go to Home Page</button>
+<button id="downloadbut" onclick="goDownload()" style="background-color: rgb(0, 255, 0);">Download Loading...</button>
+<button onclick="history.back()">Go Back</button>
 <script>
 const fileName = decodeURIComponent(
   window.location.pathname.split("/files/")[1] || ""
