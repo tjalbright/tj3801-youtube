@@ -27,6 +27,7 @@ button {
 </head>
 <body>
 <h1>Download Page</h1>
+<p>Chrome may call the download suspicious. I swear theres no virus in there.</p>
 <button onclick="history.back()" style="background-color: rgb(255, 0, 0);">Go Back</button>
 <button id="downloadbut" onclick="goDownload()" style="background-color: rgb(0, 255, 0);">Download Loading...</button>
 <script>
